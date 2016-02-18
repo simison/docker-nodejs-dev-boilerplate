@@ -1,0 +1,41 @@
+{
+  "name": "docker-nodejs-development-boilerplate",
+  "description": "Docker-NodeJS Development Boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "~4.2.0",
+    "npm": ">=2.0.0"
+  },
+  "scripts": {
+    "prestart": "if [ ! -d node_modules ]; then npm install --quiet; fi",
+    "start": "gulp",
+    "build": "gulp build",
+    "update": "npm install --quiet && npm prune",
+    "postinstall": "bower install --allow-root --config.interactive=false && bower prune --allow-root --config.interactive=false"
+  },
+  "dependencies": {
+    "mongodb": "~2.1.6",
+    "bower": "~1.7",
+    "gulp": "~3.9",
+    "gulp-sass": "~2.2.0",
+    "gulp-bower": "~0.0.13",
+    "gulp-concat": "~2.6.0",
+    "gulp-nodemon": "~2.0.6",
+    "gulp-livereload": "~3.8.1",
+    "static-server": "~2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simison/docker-nodejs-development-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/simison/docker-nodejs-development-boilerplate/issues"
+  },
+  "author": {
+    "name": "Mikael Korpela",
+    "email": "mikael@ihminen.org",
+    "url": "http://www.mikaelkorpela.fi/"
+  },
+  "license": "MIT"
+}

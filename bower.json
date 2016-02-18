@@ -1,0 +1,7 @@
+{
+  "name": "docker-nodejs-development-boilerplate",
+  "description": "Docker-NodeJS Development Boilerplate",
+  "dependencies": {
+    "primer-css": "~2.5.0"
+  }
+}

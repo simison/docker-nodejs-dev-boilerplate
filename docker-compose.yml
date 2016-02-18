@@ -1,0 +1,43 @@
+app:
+  restart: always
+  build: .
+  # Mount the app dir in the container so our changes
+  # to the app code are also changed in the container
+  volumes:
+    - ".:/srv/app"
+  working_dir: /srv/app/
+  command: npm start
+  links:
+    - mongodb:mongodb
+  ports:
+    - "3000:3000"
+    - "5858:5858"
+    - "35729:35729"
+  environment:
+    - NODE_ENV=development
+    - DB_1_PORT_27017_TCP_ADDR=mongodb
+    - PORT=3000
+    - DOMAIN=app.dev
+    - VIRTUAL_HOST=app.dev
+    - VIRTUAL_PORT=3000
+
+## Database container
+mongodb:
+  image: mongo
+  restart: always
+  ports:
+    - "27017:27017"
+  command: "--smallfiles --logpath=/dev/null"
+
+## Nginx proxy
+## See settings per host from ./scripts/docker/nginx/*
+## https://github.com/jwilder/nginx-proxy
+nginx:
+  image: jwilder/nginx-proxy
+  restart: always
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - ./config/nginx_app.dev:/etc/nginx/vhost.d/app.dev
+    - ./config/nginx_app.dev_location:/etc/nginx/vhost.d/app.dev_location
+  ports:
+    - "80:80"

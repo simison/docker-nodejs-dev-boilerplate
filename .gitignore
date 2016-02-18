@@ -1,0 +1,31 @@
+# https://github.com/github/gitignore
+
+# OS specific junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.directory
+*.lnk
+._*
+*~
+
+# Icon must end with two \r.
+Icon
+
+
+# OSX Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Env/development
+.nodemonignore
+.bower-*/
+*.log
+*.pid
+bower_components
+node_modules
+
+# App
+public/build
