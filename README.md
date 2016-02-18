@@ -5,9 +5,9 @@
 #### Stack
 - Containerized using **[Docker](https://www.docker.com/)**.
 - Uses **[Nginx](http://nginx.org/)** container to proxy http 80 port to a **[NodeJS](https://nodejs.org/)** server running on port 3000.
-- Package management using NPM (`./node_modules/`) and **[Bower](http://bower.io/)** (`./public/bower_components`).
+- Package management using **NPM** and **[Bower](http://bower.io/)**.
 - Sets up **[MongoDB](https://www.mongodb.org/)** container.
-- Watching for changes using Nodemon and **[LiveReload](http://livereload.com/)**.
+- Watching for changes using **[Nodemon](http://nodemon.io/)** and **[LiveReload](http://livereload.com/)**.
 - Builds and starts the app using **[Gulp](http://gulpjs.com/)** task runner.
 - Everything is orchestrated using **[Docker-Compose](http://docs.docker.com/compose/)**
 
@@ -89,9 +89,9 @@ Note that it's recommended not to have `bower_components` folder publicly access
 - `config`: Nginx configuration files for `location` and `server` configuration blocks. These basically turn Nginx caching off to make development easier.
 - `docker-compose.yml`, `Dockerfile` and `.dockerignore`: Configurations for Docker containers.
 - `node_modules`: Backend modules
+- `bower_components`: Frontend vendor assets
 - `public`: Folder served by NodeJS server.
 - `public/build`: Compiled frontend assets
-- `public/bower_components`: Frontend vendor assets
 - `src`: files to be compiled to `public/build`
 - `gulpfile.js`: Gulp task runner configuration
 - `.editorconfig`: [EditorConfig](http://editorconfig.org/) is awesome
