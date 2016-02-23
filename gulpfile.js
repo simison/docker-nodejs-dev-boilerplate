@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    runSequence = require('run-sequence');
 
 gulp.task('bower', function() {
   return bower();
@@ -45,10 +46,14 @@ gulp.task('watch', function() {
 });
 
 // Build
-gulp.task('build', ['bower', 'sass']);
+gulp.task('build', function(done) {
+  runSequence('bower', 'sass', done);
+});
 
 // Production
-//gulp.task('production', ['build']);
+gulp.task('production', ['build']);
 
 // Development
-gulp.task('default', ['build', 'watch', 'nodemon']);
+gulp.task('default', function(done) {
+  runSequence('build', ['watch', 'nodemon'], done);
+});
