@@ -2,10 +2,15 @@ app:
   restart: always
   build: .
   # Mount the app dir in the container so our changes
-  # to the app code are also changed in the container
+  #  to the app code are also changed in the container
+  #
+  # Mount node_modules separately as a data volume, so
+  #  that they won't get overwritten by app directory
+  #  Read more: http://stackoverflow.com/a/32785014/1984644
   volumes:
-    - ".:/srv/app"
-  working_dir: /srv/app/
+    - ./:/app
+    - /app/node_modules
+  working_dir: /app/
   command: npm start
   links:
     - mongodb:mongodb

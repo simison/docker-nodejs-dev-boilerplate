@@ -8,11 +8,9 @@
     "npm": ">=2.0.0"
   },
   "scripts": {
-    "prestart": "if [ ! -d node_modules ]; then npm install --quiet; fi",
     "start": "gulp",
     "build": "gulp build",
-    "update": "npm install --quiet && npm prune",
-    "postinstall": "bower install --allow-root --config.interactive=false && bower prune --allow-root --config.interactive=false"
+    "update": "npm install --quiet && npm prune"
   },
   "dependencies": {
     "mongodb": "~2.1.6",
